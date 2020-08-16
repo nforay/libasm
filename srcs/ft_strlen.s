@@ -18,8 +18,7 @@ increment:
 
 while:
 			cmp		byte [rdi + rax], 0	; compare str[i] with 0
-			je		return				; if equal return
-			jmp		increment			; else increment
+			jne		increment			; if not equal increment
 
 return:
 			ret							; return (i)
