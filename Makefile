@@ -26,6 +26,7 @@ all: $(NAME)
 
 $(NAME):		$(OBJ)
 				ar rcs $(NAME) $(OBJ)
+				@echo "\033[32;1mRun make test to make tester\033[0m"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.s
 				@mkdir $(OBJ_PATH) 2> /dev/null || true
@@ -40,7 +41,7 @@ fclean:			clean
 re:				fclean all
 
 test:			all
-				clang -fsanitize=address -Wall -Werror -Wextra srcs/test.c $(NAME) -o tester
+				@clang -fsanitize=address -Wall -Werror -Wextra srcs/test.c $(NAME) -o tester
 				@echo "\033[32;1mTester Ready: ./tester\033[0m"
 
 .PHONY: all re clean fclean test

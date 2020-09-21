@@ -11,7 +11,7 @@
 			section	.text
 
 ft_read:
-			mov		rax, 0				; 1 is read() syscall number
+			mov		rax, 0				; 0 is read() syscall number
 			syscall
 			cmp		rax, 0				; on error -1 is returned
 			jl		error
